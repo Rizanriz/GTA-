@@ -77,7 +77,7 @@ section {
 }
 @media (max-width: 900px) {
   section {
-    /* flex-direction: column-reverse; */
+    flex-direction: column-reverse;
   }
   .profile-images {
     flex-wrap: wrap;
