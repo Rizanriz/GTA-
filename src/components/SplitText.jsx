@@ -8,7 +8,7 @@ gsap.registerPlugin(SplitText);
 const Team = () => {
     useEffect(() => {
         const profileImagesContainer = document.querySelector(".profile-images");
-        const profileImages = document.querySelectorAll(".profile-images img");
+        const profileImages = document.querySelectorAll(".profile-images .img");
         const nameElements = document.querySelectorAll(".profile-names .name");
         const nameHeadings = document.querySelectorAll(".profile-names .name h1");
 
@@ -94,32 +94,25 @@ const Team = () => {
         }
     }, []);
 
-    const images = Array.from({ length: 9 }, (_, i) => `/img/img${i + 1}.jpg`);
     const Names = ["Lucia", "Jason", "Tommy", "Rico", "Diego", "Mickey", "Elena", "Vinny", "Isabella"];
-    
+    const images = Array.from({ length: Names.length }, (_, i) => `/img/img${i + 1}.jpg`);
+
     return (
         <section className="team">
             <div className="profile-images">
                 {images.map((src, i) => (
                     <div className="img" key={i}>
-                        <img src={src} alt={`img${i + 1}`} />
+                        <img src={src} alt={`${Names[i]}`} />
                     </div>
                 ))}
             </div>
             <div className="profile-names">
                 <div className="name default"><h1>THE SQUAD</h1></div>
-                {Names.map((names, i) => (
-                    <div className="name" key={i}><h1>{names}</h1></div>
+                {Names.map((name, i) => (
+                    <div className="name" key={i}>
+                        <h1>{name}</h1>
+                    </div>
                 ))}
-                {/* <div class="name"><h1>max</h1></div>             F
-                <div class="name"><h1>max</h1></div>
-                <div class="name"><h1>max</h1></div>
-                <div class="name"><h1>max</h1></div>
-                <div class="name"><h1>max</h1></div>
-                <div class="name"><h1>max</h1></div>
-                <div class="name"><h1>max</h1></div>
-                <div class="name"><h1>max</h1></div>
-                <div class="name"><h1>max</h1></div> */}
             </div>
         </section>
     );
